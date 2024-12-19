@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+    <h1>{{ current_user.username }}, добро пожаловать на домашнюю страницу!</h1>
+{% else %}
+    <p>Вы не авторизованы. <a href="{{ url_for('login') }}">Войти</a></p>
+{% endif %}
+{% endblock %}
